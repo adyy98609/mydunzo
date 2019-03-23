@@ -11,7 +11,7 @@
             <li class="list-group-item">Price: <h6>{{item.product.price}}</h6></li>          
           </ul>
           <div class="btn-group" role="group">
-          <button  (click)="onSub(item.product.id)" class="btn btn-primary" [disabled]="count==0" >-</button>
+          <button  (click)="onSub(item.product.id)" class="btn btn-primary" [disabled]="item.quantity==0" >-</button>
           <button class="btn btn-primary" > {{item.quantity}} </button>
           <button  (click)="onAdd(item.product.id)" class="btn btn-primary">+</button>
           </div>
