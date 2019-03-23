@@ -1,0 +1,74 @@
+<!-- <div class="card mb-3" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="..." class="card-img" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+<!-- <div class="card-group" *ngFor="let items of items">
+  <div class="card">
+    <img class="img-fluid" src="assets/maggie.jpg" class="rounded float-left"alt="Maggie" style="max-width: 18rem">
+    <div class="card-body">
+      <h5 class="card-title">Card title: {{items.product.productName}}</h5>
+      <p class="card-text">{{items.product.companyName}}</p>
+      <button type="button" class="btn btn-light btn-block mb-3" type="submit">+ Add</button>
+    </div>
+    <div class="card-footer">
+      
+      <small class="text-muted">Last updated 3 mins ago</small>
+    </div>
+  </div> -->
+
+<!-- <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;"  *ngFor="let items of items" >
+  <div class="card-header">{{items.product.productName}}</div>
+  <div class="card-body">
+    <h5 class="card-title">{{items.product.companyName}}</h5>
+    <p class="card-text"> item quantity: {{items.quantity}} </p>
+    <button type="button" class="btn btn-primary btn-lg" type="submit">+ Add</button>
+  </div>
+</div> -->
+
+<!-- <ul>
+  <li *ngFor="let item of items">
+     <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+      <div class="card-header">{{items.product.productName}}</div>
+      <div class="card-body">
+        <h5 class="card-title">{{items.product.companyName}}</h5>
+        <p class="card-text"> item quantity: {{items.quantity}} </p>
+        <button type="button" class="btn btn-primary btn-lg" type="submit">+ Add</button>
+      </div> 
+      {{item.product.productName}}
+  </li>
+</ul> -->
+
+
+<ul class="list-unstyled">
+  <li class="card card-body mb-2" *ngFor="let item of items">
+    <div class="row">
+      <div class="col-sm-4">
+        <img class="img-fluid" [src]="item.product.photo" alt="">
+      </div>
+        <div class="col-sm-8">
+          <h3>{{item.product.productName}}</h3>
+          <ul class="list-group">
+            <li class="list-group-item">Company:<h6> {{item.product.companyName}}</h6></li>
+            <li class="list-group-item">Price: <h6>{{item.product.price}}</h6></li>          
+          </ul>
+          <div class="btn-group" role="group">
+          <button  (click)="onSub(item.product.id)" class="btn btn-primary" [disabled]="count==0" >-</button>
+          <button class="btn btn-primary" > {{item.quantity}} </button>
+          <button  (click)="onAdd(item.product.id)" class="btn btn-primary">+</button>
+          </div>
+        </div>
+    </div>
+  </li>
+</ul>
