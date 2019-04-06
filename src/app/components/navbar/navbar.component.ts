@@ -6,12 +6,22 @@ import { DataService } from 'src/app/services/data.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit ,OnChanges{
 
 @Input() cartValue:number;
+@Input() cartItems:any;
 
-constructor(){}
+
+constructor(private dataservice:DataService){}
   ngOnInit() {
     
+  }
+
+  ngOnChanges(){
+    this.sendData();
+  }
+
+  sendData(){
+    this.dataservice.setData(this.cartItems);
   }
 }

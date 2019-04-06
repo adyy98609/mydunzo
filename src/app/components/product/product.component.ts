@@ -10,20 +10,13 @@ import { DataService } from 'src/app/services/data.service';
 export class ProductComponent implements OnInit {
   items: Item[] = [];
   count: number =0;
-  quantity:number[]=[];
+  cart:any=[];
   displayValue:number;
   @Output() emitter = new EventEmitter();
+  @Output() itemsInCart=new EventEmitter();
 
 
   constructor() { }
-
-  
-  // ngOnChanges(){
-  //   this.dataservice.setData(this.count);
-  //   this.onAdd();
-  //   this.onSub();
-  //   console.log("Test",this.count);
-  // }
 
   ngOnInit() {
 
@@ -74,12 +67,16 @@ export class ProductComponent implements OnInit {
       this.items[productId].quantity++;
       console.log(productId)
       this.count++;
+      this.cart.push(this.items[productId])
+      this.itemsInCart.emit(this.cart);
       this.emitter.emit(this.count);
+      
   }
 
   onSub(productId){
     this.items[productId].quantity--;
     this.count--;
+    this.itemsInCart.emit(this.items[productId]);
     this.emitter.emit(this.count);
   }
 

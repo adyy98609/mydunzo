@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,AfterViewInit, OnChanges} from '@angular/core';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-cart',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
+  cartData:any;
+  newcartData:any=[];
 
-  constructor() { }
+  constructor(private dataservice:DataService) { }
 
-  ngOnInit() {
+  ngOnInit(){
+    this.cartData=this.dataservice.getData();
+    console.log("*******",this.cartData)
   }
-
+  
 }

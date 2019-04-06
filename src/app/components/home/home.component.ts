@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
 n;
 @Input() name: string;
 count:number;
+cartItems:any;
 
 
   constructor(private dataservice:DataService) {   
@@ -25,6 +26,9 @@ showCounter(count) {
   this.count=count;
   //console.log(this.count);
 }
-
+showCartItems(cartItems){
+  this.cartItems=cartItems;
+  console.log("test",this.cartItems);
+}
 
 }
