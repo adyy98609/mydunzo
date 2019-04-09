@@ -1,54 +1,21 @@
-<div>
-  <!-- Default form contact -->
-<form class="text-center border border-light p-5">
-
-  <p class="h4 mb-4">Add Product</p>
-
-  <!-- Name -->
-      <input type="text" name="productName" class="form-control mb-4" placeholder="ProductName" [(ngModel)]="addProduct.product.productName">
-
-  <!-- Email -->
-  <input type="email" data-ng-mouseleave="defaultContactFormEmail" name="price" class="form-control mb-4" placeholder="Price" [(ngModel)]="addProduct.product.price">
-
-  <!-- Subject -->
-  <label>Company Name</label>
-  <select class="browser-default custom-select mb-4">
-      <option value="" disabled>Choose option</option>
-      <option value="1" selected>Parle</option>
-      <option value="2">Amul</option>
-      <option value="3">Mother Dairy</option>
-      <option value="4">Govardhan</option>
-  </select>
-
-  <input type="text" name="quantity" class="form-control mb-4" placeholder="Quantity" [(ngModel)]="addProduct.quantity">
-
-  <!-- Send button -->
-  <button class="btn btn-info btn-block" type="submit" (click)="addItem()">Send</button>
-
-</form>
-<!-- Default form contact -->
-</div>
 <ul class="list-unstyled">
   <li class="card card-body mb-2" *ngFor="let item of items">
     <div class="row">
       <div class="col-sm-4">
         <img class="img-fluid" [src]="item.product.photo" alt="">
       </div>
-      <div class="col-sm-8">
-        <h3>{{item.product.productName}}</h3>
-        <ul class="list-group">
-          <li class="list-group-item">Company:<h6> {{item.product.companyName}}</h6>
-          </li>
-          <li class="list-group-item">Price: <h6>{{item.product.price}}</h6>
-          </li>
-        </ul>
-        <div class="btn-group" role="group">
-          <button (click)="onSub(item.product.id)" class="btn btn-primary"
-            [disabled]="count==0 || item.quantity==0">-</button>
-          <button class="btn btn-primary"> {{item.quantity}} </button>
-          <button (click)="onAdd(item.product.id)" class="btn btn-primary">+</button>
+        <div class="col-sm-8">
+          <h3>{{item.product.productName}}</h3>
+          <ul class="list-group">
+            <li class="list-group-item">Company:<h6> {{item.product.companyName}}</h6></li>
+            <li class="list-group-item">Price: <h6>{{item.product.price}}</h6></li>          
+          </ul>
+          <div class="btn-group" role="group">
+          <button  (click)="onSub(item.product.id)" class="btn btn-primary" [disabled]="item.quantity==0" >-</button>
+          <button class="btn btn-primary" > {{item.quantity}} </button>
+          <button  (click)="onAdd(item.product.id)" class="btn btn-primary">+</button>
+          </div>
         </div>
-      </div>
     </div>
   </li>
 </ul>
