@@ -10,38 +10,6 @@ import { DataService } from 'src/app/services/data.service';
 export class ProductComponent implements OnInit {
   items: Item[] = [];
   count: number =0;
-<<<<<<< HEAD
-  quantity:number[]=[];
-  prodName: string;
-  compName: string;
-  price: number;
-  cn: string;
-  item: Item;
-  @Output() emitter = new EventEmitter();
-  addProduct:any;
-
-
-  constructor() {
-    this.addProduct={
-      product:{
-        id:'',
-        productName:'',
-        companyName:'',
-        price:'',
-        photo:''
-      },
-      quantity:''
-    };
-   }
-
-  
-  // ngOnChanges(){
-  //   this.dataservice.setData(this.count);
-  //   this.onAdd();
-  //   this.onSub();
-  //   console.log("Test",this.count);
-  // }
-=======
   cart:any=[];
   displayValue:number;
   @Output() emitter = new EventEmitter();
@@ -49,7 +17,6 @@ export class ProductComponent implements OnInit {
 
 
   constructor() { }
->>>>>>> bc3fd159b7385e1c9c2fe995a87d11b4ecfabcd7
 
   ngOnInit() {
 
@@ -91,58 +58,26 @@ export class ProductComponent implements OnInit {
           quantity: 0
         }
       ];
-<<<<<<< HEAD
-  };
- 
-  addItem() {
-    console.log("addProduct details",this.addProduct);
-    this.items.push(this.addProduct);
-=======
   }
 
   addItem(item11: Item) {
     this.items.push(item11);
->>>>>>> bc3fd159b7385e1c9c2fe995a87d11b4ecfabcd7
   }
   onAdd(productId){
       this.items[productId].quantity++;
       console.log(productId)
       this.count++;
-<<<<<<< HEAD
-      this.emitter.emit(this.count);
-=======
       this.cart.push(this.items[productId])
       this.itemsInCart.emit(this.cart);
       this.emitter.emit(this.count);
       
->>>>>>> bc3fd159b7385e1c9c2fe995a87d11b4ecfabcd7
   }
 
   onSub(productId){
     this.items[productId].quantity--;
-<<<<<<< HEAD
-    console.log(productId);
-    this.count--;
-    this.emitter.emit(this.count);
-  }
-
-
-    coName(compName: string){
-      this.item.product.companyName=compName;
-    }
-     proName(prodName: string){
-       this.item.product.productName=prodName;
-     }
-
-    proPrice(price: number){
-      this.item.product.price=price;
-    }
-}
-=======
     this.count--;
     this.itemsInCart.emit(this.items[productId]);
     this.emitter.emit(this.count);
   }
 
 }
->>>>>>> bc3fd159b7385e1c9c2fe995a87d11b4ecfabcd7
